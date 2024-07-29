@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     body 
+     {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #e0e0e0;
+    }
+    .main
+    {
+        border: #dd5b5b solid 5px;
+        background-color:palevioletred;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px 0px #000000;
+    }
+    .main1
+    {
+        margin: 10px;
+    }
+    .main1 textarea
+    {
+        width: 100%;
+    
+        border-radius: 0.5rem;
+
+    }
+    .count
+    {
+        display: flex;
+        justify-content: space-between;
+        color: rgb(74, 74, 74);
+    }
+</style>
+<body>
+    <div class="main">
+        <div class="main1">
+            <h1>Real-time character counter</h1>
+            <textarea  id="message"placeholder="Please write your text here..." maxlength="50" rows="8" cols="50"></textarea>
+        
+            <div class="count">
+                <h4>Total Characters:<span id="cha">0</span></h4>
+                <h4>Remaining:<span id="rem">50</span></h4>
+            </div> 
+        </div>
+    </div>
+    <script>
+        const maxChars = 50;
+        const textInput = document.getElementById('message');
+        const charCount = document.getElementById('cha');
+        const charRemaining = document.getElementById('rem');
+        textInput.addEventListener('input',function() {
+            const currentLength = this.value.length;
+            charCount.innerHTML = currentLength;
+            charRemaining.textContent = maxChars - currentLength;
+        });
+    </script>
+</body>
+</html>
